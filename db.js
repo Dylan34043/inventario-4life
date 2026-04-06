@@ -1,18 +1,22 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'mariam', // Reemplaza esto por tu contraseña de MySQL
-    database: 'productos_4life'     // Asegúrate de que este nombre sea el correcto
+    host: 'mysql-374da5a9-oviedomariam2007-e04.g.aivencloud.com',
+    user: 'avnadmin',
+    password: 'redacted', 
+    database: 'defaultdb',
+    port: 16403,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 connection.connect(err => {
     if (err) {
-        console.error('Error de conexión:', err.stack);
+        console.error('Error conectando a la nube:', err.message);
         return;
     }
-    console.log('Conectado a la base de datos productos_4life');
+    console.log('¡Conectado a la base de datos de Aiven!');
 });
 
 module.exports = connection;
